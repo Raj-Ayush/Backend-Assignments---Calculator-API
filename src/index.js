@@ -2,9 +2,10 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser");
 const port = 3000
-app.use(express.urlencoded());
 const minLimit = -1000000;
 const maxLimit = 1000000;
+app.use(express.urlencoded());
+
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
@@ -15,7 +16,7 @@ app.use(bodyParser.json())
 // your code goes here
 
 app.get('/', (req, res) => {
-    res.send("Hello World!");
+    res.send("Hello world!");
 });
 
 
@@ -153,7 +154,7 @@ app.post('/divide',(req,res)=>
     else{
         res.send({
             status: 'success',
-            message:'the division of given two numbers',
+            message:'The division of given numbers',
             result: n1/n2,
         });
     }	
