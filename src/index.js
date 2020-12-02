@@ -112,7 +112,7 @@ app.post('/multiply', (req, res) => {
     else{
         res.send({
             status: 'success',
-            message:'the product of given two numbers',
+            message:'The product of given numbers',
             result: n1*n2
         });
     }
