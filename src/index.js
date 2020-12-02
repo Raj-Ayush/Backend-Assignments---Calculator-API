@@ -17,36 +17,40 @@ app.get('/', (req, res) => {
     res.send("Hello World!");
 });
 
-const minLim = -1000000;
-const maxLim = 1000000;
-app.post('/add', (req, res) => {
-    const n1= req.body.num1;
-    const n2= req.body.num2;
-    if(typeof n1 === 'string' || typeof n2 === 'string'){
+const minLimit = -1000000;
+const maxLimit = 1000000;
+app.post('/add',(req,res)=>
+{
+   
+    const n1 = req.body.num1;  
+    const n2 = req.body.num2; 
+    if(typeof n1 =='string' || typeof n2 =='string')
+    {
         res.send({
             status: 'error',
-            message: "Invalid data types"
+            message: 'Invalid data types',
         });
-    } 
-    else if(n1<minLimit || n2<minLimit || (n1+n2<minLimit)){
+    }
+    if(n1<minLimit || n2<minLimit || (n1+n2<minLimit))
+    {
         res.send({
             status: 'error',
-            message: 'Underflow'
+            message: 'Underflow',
         });
     }
-    else if(n1>minLimit || n2>minLimit || (n1+n2>minLimit)){
+    else if (n1>maxLimit || n2> maxLimit || (n1+n2>maxLimit))
+    {
         res.send({
-            status: 'error',
-            message: 'Overflow'
+            staus:'error',
+            message:'Overflow',
         });
-    }
-    else{
+    }else{
         res.send({
-            status: 'sucess',
-            message: 'the sum of given two numbers',
-            sum: num1 + num2
+            status: 'success',
+            message:'the sum of given two numbers',
+            sum: n1+n2,
         });
-    }
+    }	
 });
 
 app.post('/sub', (req, res) =>{
