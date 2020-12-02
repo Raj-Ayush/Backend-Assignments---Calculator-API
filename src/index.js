@@ -3,7 +3,8 @@ const app = express()
 const bodyParser = require("body-parser");
 const port = 3000
 app.use(express.urlencoded());
-
+const minLimit = -1000000;
+const maxLimit = 1000000;
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
@@ -17,8 +18,7 @@ app.get('/', (req, res) => {
     res.send("Hello World!");
 });
 
-const minLimit = -1000000;
-const maxLimit = 1000000;
+
 app.post('/add',(req,res)=>
 {
    
@@ -143,7 +143,7 @@ app.post('/divide',(req,res)=>
             message:'Overflow',
         });
     }
-    else if ( n2== 0)
+    else if ( n2=== 0)
     {
         res.send({
             staus:'error',
